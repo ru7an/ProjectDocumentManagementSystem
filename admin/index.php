@@ -29,7 +29,7 @@ if(isset($_POST['admin_submit']))
 
     if($user_name=="admin" && $pass_word=="admin")
     {
-        echo "<script>window.open('/Pariyojana1/admin','_self')</script>";
+        echo "<script>window.open('/admin','_self')</script>";
         $_SESSION['user'] = $user_name;
     }
 }
