@@ -64,7 +64,15 @@
     <div class="main-info">
         <div class="my-college">
             <div class="college-logo">
-                <img src="media/ncit.jpg">
+                <?php
+                $institute_check = "SELECT * FROM userc WHERE college='Snopdrop College'";
+                $run_check = pg_query($dbcon, $institute_check);
+                while($row=pg_fetch_array($get_run))
+                {
+                    $college_logo = $row[5];
+                }
+                ?>
+                <img src="<?php echo"$college_logo" ?>">
             </div>
             <div class="college-name">
                 &nbsp;Nepal College of Information Technology
