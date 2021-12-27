@@ -105,7 +105,6 @@
             Powered By <a href="https://rusanvaidya.com.np">Rusan Vaidya</a>
         </div>
     </div>
-    <script src="static/js/signup.js"></script>
 </body>
 
 <?php
