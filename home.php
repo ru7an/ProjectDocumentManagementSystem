@@ -65,6 +65,7 @@
         <div class="my-college">
             <div class="college-logo">
                 <?php
+                include 'db.php';
                 $institute_check = "SELECT * FROM userc WHERE college='Snopdrop College'";
                 $run_check = pg_query($dbcon, $institute_check);
                 while($row=pg_fetch_array($get_run))
