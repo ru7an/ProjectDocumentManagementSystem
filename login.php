@@ -174,7 +174,7 @@
                             echo"<script>console.log('Logo Upload Failed')</script>";
                         }
                         
-                        echo"<script>window.open('/Pariyojana1/waiting.html','_self')</script>";
+                        echo"<script>window.open('/waiting.html','_self')</script>";
                     }
                 }
             }
