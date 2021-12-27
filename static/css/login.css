@@ -1,0 +1,311 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+body
+{
+    background-color: white;
+}
+.login-main
+{
+    width: 100%;
+    height: 700px;
+    background-image: linear-gradient(rgb(102, 30, 216), black);
+}
+.login-container
+{
+    float: left;
+    width: 60%;
+    position: relative;
+    height: 100%;
+}
+.login-element
+{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: 1s fadeIn;
+    position: absolute;
+}
+@keyframes fadeIn 
+{
+    from{opacity: 0; top: 20%;}
+    to{opacity: 1; top: 50%;}    
+}
+.login-container .logo
+{
+    font-size: 30px;
+    font-family: 'Oswald';
+    color: white;
+}
+.login-container .logo img
+{
+    width: 150px;
+    border: 3px solid white;
+    border-radius: 50%;
+}
+
+.login-f
+{
+    margin-top: 20px;
+    width: 400px;
+}
+.login-f input
+{
+    width: 100%;
+    font-family: 'Oswald';
+    box-sizing: border-box;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: none;
+    font-size: 17px;
+    outline: none;
+}
+.login-f button
+{
+    width: 100px;
+    padding: 10px 12px;
+    font-size: 25px;
+    border: none;
+    font-family: 'Oswald';
+    background-color: #6811a7;
+    color: white;
+    border-radius: 10px;
+}
+.login-f button:hover
+{
+    background-color: #310252;
+    animation: 0.25s fontbig;
+    cursor: pointer;
+}
+@keyframes fontbig 
+{   
+    from{background-color: #6811a7;}
+    to{background-color: #310252;}
+}
+.other
+{
+    width: 40%;
+    float: right;
+    position: relative;
+    height: 100%;
+}
+.other img
+{
+    width: 400px;
+}
+.other .animated-img
+{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+.sign-up
+{
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-family: 'Oswald';
+    font-size: 17px;
+}
+.sign-up button
+{
+    background-color: transparent;
+    border: none;
+    margin-top: 10px;
+    color: white;
+    border-radius: 7px;
+    text-decoration: underline;
+    font-family: 'Oswald';
+    cursor: pointer;
+    font-size: 17px;
+}
+#signup-bg, #role-bg, #signup-co-bg
+{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.466);
+}
+.signup-container
+{
+    z-index: 1;
+    position: absolute;
+    background-color: white;
+    width: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 10px;
+    animation: 1s fadeIn;
+}
+.signup-container .head
+{
+    font-size: 30px;
+    font-family: 'Oswald';
+    display: block;
+    margin-bottom: 15px;
+}
+.signup-container .head p
+{
+    display: inline-block;
+}
+.signup-container .head span
+{
+    float: right;
+    font-weight: bold;
+    cursor: pointer;
+}
+.signup-container .roles
+{
+    width: 100%;
+}
+.signup-container .roles button
+{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #6811a7;
+    color: white;
+    font-family: 'Oswald';
+    font-size: 20px;
+    border: none;
+    margin-bottom: 10px;
+}
+.signup-container .roles button:hover
+{
+    animation: 1s colorchange;
+    background-color: #980bfc; 
+    color: #000000;
+}
+
+/* register forms */
+.signup-container input, .signup-container select
+{
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    font-family: 'Oswald';
+    font-size: 17px;
+    outline: none;
+}
+#role-s-s
+{
+    display: none;
+}
+.signup-container input[type='submit']
+{
+    background-color: #6811a7;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.signup-container input[type='submit']:hover
+{
+    background-color: #980bfc; 
+    color: #000000;
+    animation: 1s colorchange;
+}
+@keyframes colorchange 
+{
+    from{background-color: #6811a7; color: #ffffff;}
+    to{background-color: #980bfc; color: #000000;}
+}
+.container1 {
+    width: 100%;
+    font-family: 'Oswald';
+    font-size: 17px;
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .container1 input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  
+  .container1:hover input ~ .checkmark1 {
+    background-color: #ccc;
+  }
+  
+  .container1 input:checked ~ .checkmark1 {
+    background-color: #6811a7;
+  }
+  
+  .checkmark1:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .container1 input:checked ~ .checkmark1:after {
+    display: block;
+  }
+  
+  .container1 .checkmark1:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+/* footer */
+.footer
+{
+    width: 100%;
+    text-align: center;
+}
+.footer a
+{
+    margin-left: 15px;
+    margin-right: 15px;
+    color: blue;
+    font-size: 18px;
+    font-family: 'Oswald';
+}
+.developer
+{
+    width: 100%;
+}
+.developer a
+{
+    margin-left: 0;
+    margin-right: 0;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.developer a:hover
+{
+    text-decoration: underline;
+}
