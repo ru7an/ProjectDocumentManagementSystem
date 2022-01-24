@@ -8,7 +8,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(purple, black);
+    background-image: linear-gradient(rgb(39, 207, 81), black);
 }
 .login-admin
 {
@@ -23,7 +23,6 @@
 {
     width: 90px;
     height: 90px;
-    border: 2px solid white;
     border-radius: 50%;
 }
 .login-admin h1
@@ -55,6 +54,27 @@
 }
 .login-admin button:hover
 {
-    border: 3px solid grey;
-    color: grey;
+    text-shadow: 0 0 10px rgb(202, 255, 122),0 0 10px rgb(192, 255, 98), 0 0 20px rgb(185, 255, 80), 0 0 30px rgb(202, 255, 122);
+}
+#adminw
+{
+    display: none;
+    color : white;
+    font-family : 'Oswald';
+    animation: 1s wpass;
+}
+@keyframes wpass
+{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+@media only screen and (max-width:600px) 
+{
+    .login-admin
+    {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
 }

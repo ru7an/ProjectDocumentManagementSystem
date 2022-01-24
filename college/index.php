@@ -1,0 +1,10 @@
+<?php
+if(mkdir("test"))
+{
+    echo"Success";
+}
+else
+{
+    echo"Failed";
+}
+?>

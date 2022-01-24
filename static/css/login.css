@@ -11,7 +11,8 @@ body
 {
     width: 100%;
     height: 700px;
-    background-image: linear-gradient(rgb(102, 30, 216), black);
+    position: relative;
+    background-image: linear-gradient(rgba(97, 235, 84, 0.836), black);
 }
 .login-container
 {
@@ -28,6 +29,10 @@ body
     animation: 1s fadeIn;
     position: absolute;
 }
+.mobile-only
+{
+    display: none;
+}
 @keyframes fadeIn 
 {
     from{opacity: 0; top: 20%;}
@@ -41,8 +46,8 @@ body
 }
 .login-container .logo img
 {
-    width: 150px;
-    border: 3px solid white;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
 }
 
@@ -69,20 +74,20 @@ body
     font-size: 25px;
     border: none;
     font-family: 'Oswald';
-    background-color: #6811a7;
+    background-color: #11a719;
     color: white;
     border-radius: 10px;
 }
 .login-f button:hover
 {
-    background-color: #310252;
+    background-color: #125202;
     animation: 0.25s fontbig;
     cursor: pointer;
 }
 @keyframes fontbig 
 {   
-    from{background-color: #6811a7;}
-    to{background-color: #310252;}
+    from{background-color: #1ea711;}
+    to{background-color: #02520f;}
 }
 .other
 {
@@ -105,7 +110,7 @@ body
 .sign-up
 {
     width: 100%;
-    text-align: center;
+    text-align: left;
     color: white;
     font-family: 'Oswald';
     font-size: 17px;
@@ -169,7 +174,7 @@ body
     box-sizing: border-box;
     padding: 10px 12px;
     cursor: pointer;
-    background-color: #6811a7;
+    background-color: #097e1c;
     color: white;
     font-family: 'Oswald';
     font-size: 20px;
@@ -179,7 +184,7 @@ body
 .signup-container .roles button:hover
 {
     animation: 1s colorchange;
-    background-color: #980bfc; 
+    background-color: #0bfc3f; 
     color: #000000;
 }
 
@@ -200,21 +205,21 @@ body
 }
 .signup-container input[type='submit']
 {
-    background-color: #6811a7;
+    background-color: #11a72a;
     color: white;
     border: none;
     cursor: pointer;
 }
 .signup-container input[type='submit']:hover
 {
-    background-color: #980bfc; 
+    background-color: #57fc0b; 
     color: #000000;
     animation: 1s colorchange;
 }
 @keyframes colorchange 
 {
-    from{background-color: #6811a7; color: #ffffff;}
-    to{background-color: #980bfc; color: #000000;}
+    from{background-color: #34a711; color: #ffffff;}
+    to{background-color: #0bfc3f; color: #000000;}
 }
 .container1 {
     width: 100%;
@@ -246,15 +251,15 @@ body
     left: 0;
     height: 25px;
     width: 25px;
-    background-color: #eee;
+    background-color: rgba(104, 104, 104, 0.726);
   }
   
   .container1:hover input ~ .checkmark1 {
-    background-color: #ccc;
+    background-color: rgba(104, 104, 104, 0.767);
   }
   
   .container1 input:checked ~ .checkmark1 {
-    background-color: #6811a7;
+    background-color: #2fa711;
   }
   
   .checkmark1:after {
@@ -289,7 +294,7 @@ body
 {
     margin-left: 15px;
     margin-right: 15px;
-    color: blue;
+    color: rgb(3, 77, 28);
     font-size: 18px;
     font-family: 'Oswald';
 }
@@ -308,4 +313,48 @@ body
 .developer a:hover
 {
     text-decoration: underline;
+}
+
+#login-failed
+{
+    display: none;
+    color : white;
+    font-family : 'Oswald';
+    animation: 1s wpass;
+}
+@keyframes wpass
+{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+@media only screen and (max-width: 1100px) {
+    .login-main, .login-container
+    {
+        width: 100%;
+        height: 550px;
+    }
+    .other
+    {
+        display: none;
+    }
+    .login-element
+    {
+        width: 100%;
+    }
+    .login-f, .logo, .sign-up
+    {
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .login-container .logo img
+    {
+        width: 80px;
+        height: 80px;
+    }
+    .signup-container
+    {
+        width: 80%;
+    }
 }
