@@ -25,7 +25,7 @@
     <div id="preloader">
         <div class="pl">
             <div class="ploader">
-                <img src="media/icon/logo.png">
+                <img src="media/icon/preloader.png">
                 <div class="shadow"></div>
             </div>
         </div>
