@@ -1,5 +1,5 @@
 <?php
-$dbcon=pg_connect("host=localhost port=5432 dbname=pariyojana user=rusan password=rusan@98");
+$dbcon=pg_connect("host=ec2-52-201-106-191.compute-1.amazonaws.com port=5432 dbname=d82qvr4te0m26l user=fygvqnraxyxvyd password=1a59f4b409192a0de292d8bac0159c633100ae60844298f23a77b1995cdce011");
 $sql ="CREATE TABLE IF NOT EXISTS USERSS
       (ID SERIAL PRIMARY KEY     NOT NULL ,
       USERNAME           CHAR(50),
