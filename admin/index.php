@@ -7,7 +7,14 @@ if(!$_SESSION)
 <link rel="icon" href="/media/icon/logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/css/admin.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+    <link rel="preload" as="font" href="static/fonts/Oswald-VariableFont_wght.ttf">
+
+    <style>
+        @font-face {
+            font-family: "Oswald";
+            src: url("static/fonts/Oswald-VariableFont_wght.ttf") format("truetype");
+        }
+    </style>
     <div class="login-container">
         <div class="login-admin">
             <img src="../media/icon/logo.png">
@@ -25,6 +32,9 @@ if(!$_SESSION)
 else
 {
     include 'admin.php';
+    ?>
+    <script src="static/js/button.js"></script>
+    <?php
 }
 if(isset($_POST['admin_submit']))
 {

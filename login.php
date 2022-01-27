@@ -11,8 +11,8 @@
                     </div>
                     <div class="login-f">
                         <form method="POST">
-                            <input type="email" placeholder="Email" name="email">
-                            <input type="password" placeholder="Password" name="pass">
+                            <input type="email" placeholder="Email" name="login_email">
+                            <input type="password" placeholder="Password" name="login_pass">
                             <button type="submit" name="login">Login</button>
                         </form>
                         <div id="login-failed">Incorrect email or password</div>                        
@@ -55,6 +55,7 @@
                             <input type="password" name="rpass" placeholder="Confirm Password" required>
                             <input type="text" name="college" placeholder="Institute Name" required>
                             <label>Institute Document : <input type="file" name="filedocx" id="filedocx" required></label>
+                            <label>Institute Trademark : <input type="file" name="filelogo" id="filelogo" required></label>
                             <label class="container1">
                             You represent this institute as a administrator.
                             <input type="checkbox" required>
@@ -108,6 +109,17 @@
                 Powered By <a href="https://rusanvaidya.com.np">Rusan Vaidya</a>
             </div>
         </div>
+        <div id="register-error">
+        <div class="error-modal">
+            <div class="error-header">
+                <p>Error Occured !</p>
+                <span onclick="document.getElementById('register-error').style.display='none'">&times;</span>
+            </div>
+            <div class="error-msg">
+                <div id="e-m">This institute is already registered.</div>
+                <button onclick="document.getElementById('register-error').style.display='none'">Close</button>
+            </div>
+        </div>
     </div>
 </body>
 
@@ -115,11 +127,11 @@
 <?php
   if(isset($_POST['login']))
   {
-    $email = $_POST['email'];
-    $pass = base64_encode($_POST['pass']);
+    $email = $_POST['login_email'];
+    $pass = base64_encode($_POST['login_pass']);
 
-    $check = "SELECT * FROM userss WHERE user_email='$email' AND user_pass='$pass'";
-    $run = pg_query($conn,$check);
+    $check = "SELECT * FROM userss WHERE user_email='$email' AND user_pass='$pass';";
+    $run = pg_query($dbcon, $check);
     if(pg_num_rows($run))
     {
         echo "<script>window.open('/','_self')</script>";
@@ -127,12 +139,12 @@
     }
     else
     {
-      $check = "SELECT * FROM userc WHERE user_email='$email' AND user_pass='$pass'";
-      $run = pg_query($conn,$check);
+      $check = "SELECT * FROM userc WHERE user_email='$email' AND user_pass='$pass';";
+      $run = pg_query($dbcon,$check);
       if(pg_num_rows($run))
       {
-          echo "<script>window.open('/home.php','_self')</script>";
-          $_SESSION['email']=$email;
+        echo "<script>window.open('/','_self');</script>";
+        $_SESSION['email']=$email;
       }
       else
       {
@@ -152,26 +164,25 @@
         $user_rpass = base64_encode($_POST['rpass']);
         $college = $_POST['college'];
         $dir = "college/$college/";
+        $logo = $_FILES['filelogo']['tmp_name'];
+        $location_logo = $dir.basename($_FILES['filelogo']['name']);
         
         $document = $_FILES['filedocx']['tmp_name'];
         $location_document = $dir.basename($_FILES['filedocx']['name']);
-        
+            
         if (filter_var($user_email, FILTER_VALIDATE_EMAIL))
         {
-            $email_check = "SELECT * FROM userc WHERE user_email='$user_email'";
+            $email_check = `SELECT * FROM "public"."userc" WHERE user_email='$user_email'`;
             $run = pg_query($dbcon, $email_check);
             if(pg_num_rows($run)>0)
             {
-                echo"<script>console.log('$run')</script>";
-                $email_check_nested = "SELECT * FROM userss WHERE user_email='$user_email'";
+                $email_check_nested = `SELECT * FROM "public"."userss" WHERE user_email='$user_email'`;
                 $run_nested = pg_query($dbcon, $email_check_nested);
                 if(pg_num_rows($run_nested)>0)
                 {
-                    echo"<script>console.log('Account from email:$user_email already in exist.Please try different email.')</script>";
-                }
-                else
-                {
-                    echo"<script>console.log('Account from email:$user_email already in exist.Please try different email.')</script>";
+                    echo"<script>
+                    document.getElementById('e-m').innerHTML='Account from email:$user_email already in exist.Please try different email.';
+                    document.getElementById('register-error').style.display='block';</script>";
                 }
             }
             else
@@ -184,30 +195,78 @@
                 }
                 else
                 {
-                    $insert_query = "INSERT INTO userc (username, user_email, user_pass, college, logo, docx, verify) VALUES ('$user_fname','$user_email','$user_pass','$college', 'none', '$location_document', 'No')";
-                    if(pg_query($dbcon,$insert_query))
+                    if(mkdir($dir))
+                    {            
+                        $insert_query = "INSERT INTO userc (username, user_email, user_pass, college, logo, docx, verify) VALUES ('$user_fname','$user_email','$user_pass','$college', '$location_logo', '$location_document', 'No')";
+                        if(pg_query($dbcon,$insert_query))
+                        {
+                            if(copy($_FILES['filelogo']['tmp_name'], $dir.basename($_FILES['filelogo']['name'])))
+                            {
+                                echo"<script>console.log('Uploaded logo')</script>";
+                            }
+                            else
+                            {
+                                echo"<script>console.log('Logo Upload Failed')</script>";
+                            }
+                            if(copy($_FILES['filedocx']['tmp_name'], $dir.basename($_FILES['filedocx']['name'])))
+                            {
+                                echo"<script>console.log('Uploaded logo')</script>";
+                            }
+                            else
+                            {
+                                echo"<script>console.log('Logo Upload Failed')</script>";
+                            }
+                            $_SESSION['email'] = $user_email;
+                            echo"<script>window.open('/','_self')</script>";
+                        }
+                    }
+                    elseif(file_exists($dir))
                     {
-                        if(copy($_FILES['fileprof']['tmp_name'], $dir.basename($_FILES['fileprof']['name'])))
-                        {
-                            echo"<script>console.log('Uploaded logo')</script>";
-                        }
-                        else
-                        {
-                            echo"<script>console.log('Logo Upload Failed')</script>";
-                        }
-                        if(copy($_FILES['filedocx']['tmp_name'], $dir.basename($_FILES['filedocx']['name'])))
-                        {
-                            echo"<script>console.log('Uploaded logo')</script>";
-                        }
-                        else
-                        {
-                            echo"<script>console.log('Logo Upload Failed')</script>";
-                        }
-                        
-                        echo"<script>window.open('/waiting.html','_self')</script>";
+                        echo"<script>
+                        document.getElementById('register-error').style.display='block';
+                        </script>";
                     }
                 }
             }
         }
+    }
+
+    if(isset($_POST['submit']))
+    {
+      $user_fname=$_POST['fname'];
+      $user_email = $_POST['email'];
+      $user_pass = base64_encode($_POST['pass']);
+      $user_rpass = base64_encode($_POST['rpass']);
+      $role=$_POST['role'];
+      $college=$_POST['college'];
+    
+      if($user_pass!=$user_rpass)
+      {
+        echo"<script>alert('Password does not match')</script>";
+      }
+      else
+      {
+        if (filter_var($user_email, FILTER_VALIDATE_EMAIL))
+        {
+            $email_check = "SELECT * FROM userss WHERE user_email='$user_email'";
+            $run = pg_query($dbcon,$email_check);
+            if(pg_num_rows($run)>0)
+            {
+            echo"<script>alert('Account from email:$user_email already in exist.Please try different email.')</script>";
+            }
+            else
+            {
+            $insert_query = "INSERT INTO userss (username, user_email, user_pass, role, college, verify) VALUES ('$user_fname','$user_email','$user_pass','$role','$college','No')";
+            if(pg_query($dbcon,$insert_query))
+            {
+                $_SESSION['email']=$user_email;
+                echo "<script>window.open('/','_self')</script>";
+            }
+            }
+        }
+        else {
+            echo "<script>alert('Invalid email')</script>";
+        }
+      }
     }
  ?>

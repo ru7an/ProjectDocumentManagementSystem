@@ -1,3 +1,8 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
 #main
 {
     display: none;
@@ -17,13 +22,13 @@
     transform: translate(-50%, -50%);
 }
 
-#preloader .pl .ploader
+.pl .ploader
 {
     position: relative;
     width: 200px;
     height: 200px;
 }
-#preloader .pl img
+.pl img
 {    
     position: absolute;
     top: 100px;
@@ -44,7 +49,7 @@
     transform: translate(-50%, -50%);
     top: 130px;
     left: 50%;
-    background-image: radial-gradient(50% 50%, #000 0%, #d3d3d3 100%);
+    background-image: radial-gradient(50% 50%, #000 0%, transparent 100%);
     animation: 1s bounce_shadow infinite linear;
 }
 @keyframes bounce 

@@ -1,210 +1,81 @@
-*
-{
-    margin: 0;
-    padding: 0;
-}
 .home-main
 {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-color: white;
-}
-.sidenav
-{
-    z-index: 1;
     position: absolute;
-    width: 80px;
-    height: 100%;
-    box-sizing: border-box;
-    background-image: linear-gradient(#61d445, #000000);
-    padding: 10px;
-}
-.sidenav button
-{
-    background-color: transparent;
-    border: none;
-}
-.sidenav button img
-{
-    border-radius: 50%;
-    border: 2px solid white;
-    width: 40px;
-    height: 40px;
-}
-@keyframes sid 
-{
-    from{width: 80px;}
-    to{width: 250px;}    
-}
-@keyframes no_sid 
-{
-    from{width: 250px;}
-    to{width: 80px;}    
-}
-.btn-side
-{
     width: 100%;
-    position: relative;
-    height: 40px;
-    margin-bottom: 25px;
-}
-.btn-a,.btn-b
-{
-    width: 50%;
     height: 100%;
+    background-image: linear-gradient(rgb(0, 45, 53), white);
 }
-.btn-b
-{
-    float: left;
-    position: relative;
-}
-.btn-a
+.my-college
 {
     position: relative;
-    float: right;
 }
-.btn-name
+.college-logo, .college-name
+{
+    display: inline-block;
+}
+.my-college .college-logo img
+{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid black;
+}
+.college-name
 {
     position: absolute;
     top: 50%;
+    transform: translateY(-50%);
+    font-family: "Oswald";
+    font-size: 40px;
+    color: white;
+}
+
+.nd-content
+{
+    display: table;
     width: 100%;
-    transform: translate(-50%, -50%);
-    display: none;
-    font-family: 'Oswald';
-    animation: 1s op;
+    table-layout: fixed;
+    border-spacing: 10px;
 }
-@keyframes op
-{
-    from{opacity: 0;}
-    to{opacity: 1;}
-}
-.btn-name a
-{
-    color: white;
-    text-decoration: none;
-}
-.btn-name a:hover
-{
-    text-decoration: underline;
-}
-.f-25
-{
-    font-size: 25px;
-}
-.f-17
-{
-    font-size: 17px;
-}
-
-#footer
-{
-    position: absolute;
-    width: 100%;
-    color: white;
-    font-size: 17px;
-    font-family: 'Oswald';
-    animation: 1s op;
-}
-.so-btn
-{
-    width: 30px;
-    height: 30px;
-}
-.so-btn i
-{
-    padding: 5px 6px;
-    border-radius: 50%;
-    border: 2px solid white;
-    color: white;
-    font-size: 30px;
-}
-
-#footer #mname
-{
-    display: none;
-    animation: 1s op;
-}
-#footer a 
-{
-    color: white;
-    text-decoration: none;
-}
-#footer a:hover
-{
-    text-decoration: underline ;    
-}
-
-
-.main-info
-{
-    float: right;
-    width: 93%;
-}
-.main-info .notice
-{
-    width: 60%;
-    float: left;
-}
-.main-info .dashboard
-{
-    width: 40%;
-    float: right;
-}
-.main-info .notice, .main-info .dashboard
-{    
-    padding: 10px;
-    box-sizing: border-box;
-    text-align: center;
-    font-family: 'Oswald';
-    color: grey;
-    font-size: 20px;
-}
-.mi-content
+.notice 
 {
     position: relative;
     width: 100%;
-    min-height: 500px;
+    height: 500px;
+    text-align: center;
+    font-family: "Oswald";
+    font-size: 30px;
+    color: white;
 }
-.no-nothing
+.mi-content
 {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.main-info .notice legend, .main-info .dashboard legend
+.no-nothing .greetings
 {
-    font-size: 30px;
+    font-size: 55px;
+    font-family: "Bebas Neue";
+}
+.no-nothing h1.ur_name
+{
+    font-size: 75px;
+    font-family: "Bebas Neue";
     color: black;
 }
 
-.main-info .my-college 
+@media only screen and (max-width:800px) 
 {
-    width: 100%;
-    position: relative;
-    height: 55px;
-}
-.main-info .my-college .college-logo
-{
-    display: inline-block;
-}
-.main-info .my-college .college-logo img
-{
-    width: 55px;
-    height: 55px;
-}
-.main-info .my-college .college-name
-{
-    display: inline-block;
-    font-family: 'Oswald';
-    font-size: 19px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-.my-info
-{
-    font-size: 17px;
-    font-family: 'Oswald';
+    .my-college .college-logo img
+    {
+        width: 70px;
+        height: 70px;
+    }
+    .college-name
+    {
+        font-size: 15px;
+    }
 }

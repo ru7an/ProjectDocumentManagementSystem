@@ -1,0 +1,168 @@
+#profilediv, #chatdiv, #notificationdiv, #noticediv, #uctrldiv, #projectdiv 
+{
+    display: none;
+    position: absolute;
+    z-index: 8;
+    background-color: white;
+    text-align: center;
+    border: 1px solid black;
+    resize: both;
+    top: 10px;
+    font-family: "Oswald";
+    max-width: 900px;
+    max-height: 600px;
+    animation: 0.5s slideup_window;
+}
+#profilediv
+{
+    left: 10px;
+}
+#chatdiv
+{
+    left: 30px;
+}
+#notificationdiv
+{
+    left: 50px;
+}
+#noticediv 
+{
+    left: 70px;
+}
+#uctrldiv
+{
+    left: 90px;
+} 
+#projectdiv
+{
+    left: 120px;
+}
+@keyframes slideup_window 
+{
+    from{top: 20px; opacity: 0;}    
+    to{top: 10px; opacity: 1;}
+}
+#profiledivheader, #chatdivheader, #notificationdivheader, #noticedivheader, #uctrldivheader, #projectdivheader
+{
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: rgb(0, 23, 49);
+    color: white;
+}
+
+#profiledivheader span, #chatdivheader span, #notificationdivheader span, #noticedivheader span, #uctrldivheader span, #projectdivheader span
+{
+    float: right;
+    font-size: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: bold;
+    font-family: none;
+    cursor: pointer;
+}
+
+#profiledivheader span:hover, 
+#chatdivheader span:hover, 
+#notificationdivheader span:hover, 
+#noticedivheader span:hover, 
+#uctrldivheader span:hover, 
+#projectdivheader span:hover
+{
+    background-color: rgba(255, 255, 255, 0.418);
+} 
+
+#project-window, #profile-window
+{
+    display: none;
+}
+
+
+/* profile-content */
+.profile-information, .uctrl-content
+{
+    font-family: "Bebas Neue";
+    padding: 20px;
+    overflow: auto;
+}
+.profile-information table, .uctrl-content table
+{
+    width: 400px;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 25px;
+    border-collapse: collapse;
+}
+.uctrl-content table td, .uctrl-content table th
+{
+    border-bottom: 3px solid black;
+    padding: 2px;
+}
+
+
+/* notification */
+.notify-content
+{
+    width: 400px;
+    padding: 20px;
+    overflow: auto;
+    box-sizing: border-box;
+}
+.notify-content ul
+{
+    list-style: none;
+}
+.notify-content ul li
+{
+    margin-bottom: 2px;
+}
+.notify-content ul li button
+{
+    text-align: left;
+    cursor: pointer;
+    background-color: wheat;
+    border: none;
+    padding: 10px 12px;
+    font-family: "Oswald";
+    font-size: 20px;
+}
+.uctrl-content button
+{
+    color: white;
+    padding: 10px 12px;
+    border:none;
+    font-size: 20px;
+    font-family: "Oswald";
+    border-radius: 4px;
+}
+.uctrl-content button:hover
+{
+    opacity: 75%;
+    cursor: pointer;
+}
+.uctrl-content button.accept
+{
+    background-color: green;
+}
+.uctrl-content button.reject
+{
+    background-color: red;
+}
+
+@media only screen and (max-width:600px) 
+{
+    #profilediv, #chatdiv, #notificationdiv, #noticediv, #uctrldiv, #projectdiv 
+    {
+        max-width: 90%;
+        left: 2px;
+    }
+    .profile-information table, .uctrl-content table
+    {
+        width: 100%;
+        font-size: 17px;
+    }
+    .notify-content
+    {
+        width: 100%;
+    }
+}

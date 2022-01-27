@@ -1,0 +1,140 @@
+.taskbar
+{
+    content: "";
+    width: 100%;
+    height: 55px;
+    background-image: linear-gradient(to left, rgb(0, 0, 0), rgb(0, 37, 46));
+    position: fixed;
+    bottom: 0;
+    z-index: 11;
+}
+.app-task, .search-task, .date-task, .logout-task, .others
+{
+    display: inline-flex;
+    z-index: 1;
+}
+.taskbar i:hover
+{
+    background-color: rgba(255, 255, 255, 0.199);
+}
+.taskbar .atask img
+{
+    padding: 2.5px;
+    width: 50px;
+}
+.taskbar .atask img:hover
+{
+    background-color: rgba(255, 255, 255, 0.288);
+}
+.atask
+{
+    position: relative;
+}
+.myprogram
+{
+    display: none;
+    z-index: -9;
+    position: absolute;
+    width: 300px;
+    top: -399px;
+    left: 0;
+    background-color: rgb(0, 26, 43);
+    animation: 0.5s menu_animate;
+}
+@keyframes menu_animate 
+{
+    from{top: 0px; opacity: 0;}
+    to{top: -399px;opacity: 1;}    
+}
+#my-program ul
+{
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#my-program ul li
+{
+    width: 100%;
+    height: 57px;
+    border-spacing: 10px;
+}
+#my-program ul li button
+{    
+    color: white;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    border: none;
+    text-align: left;
+    font-family: "Oswald";
+    font-size: 20px;
+}
+#my-program ul li button:hover
+{
+    background-color: rgba(187, 186, 186, 0.233);
+}
+.search-task
+{
+    padding: 5px;
+}
+.taskbar input
+{
+    padding: 12px 12px;
+    outline: none;
+    width: 300px;
+}
+.right-task
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.right-task i
+{
+    padding: 12.5px;
+    font-size: 30px;
+    color: white;
+}
+.date-task
+{
+    font-family: "Oswald";
+    font-size: 20px;
+    color: white;
+}
+.others i
+{
+    padding: 12.5px;
+    color: white;
+    font-size: 30px;
+}
+.o1, .o2
+{
+    margin-right: 5px;
+    display: inline-flex;
+    position: relative;
+}
+.o1 span, .o2 span
+{
+    position: absolute;
+    content: "";
+    width: 15px;
+    height: 15px;
+    top: 55%;
+    right: 20%;
+    border-radius: 50%;
+    background-color: red;
+}
+
+@media only screen and (max-width:800px) 
+{
+    .search-task, .date-task
+    {
+        display: none;
+    }
+    .others
+    {
+        overflow-x: auto;
+        width: 200px;
+    }
+}

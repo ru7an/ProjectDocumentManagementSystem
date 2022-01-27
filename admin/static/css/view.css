@@ -1,0 +1,145 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+.admin-view
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(green, black);
+}
+.admin-view .admin-page
+{
+    width: 100%;
+    height: 100px;
+}
+.admin-info, .clogo, .admin-info p, .admin-info form
+{
+    display: inline-block;
+}
+.admin-info
+{
+    position: relative;
+    width: 400px;
+    height: 100px;
+}
+.admin-information
+{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: "Oswald";
+    font-size: 30px;
+    color: white;
+}
+.admin-info button
+{
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    padding: 10px 12px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    background-color: rgb(49, 65, 49);
+}
+.admin-info button:hover
+{
+    background-color: rgba(49, 65, 49, 0.836);
+}
+
+.admin-view .admin-page img
+{
+    width: 100px;
+}
+
+.admin-view table
+{
+    text-align: center;
+    width: 800px;
+    margin: 0 auto;
+}
+.admin-view table tr td img
+{
+    width: 70px;
+    height: 70px;
+}
+.admin-view h1
+{
+    text-align: center;
+    font-family: "Oswald";
+    color: white;
+}
+.admin-view table
+{
+    font-family: "Oswald";
+    color: white;
+    font-size: 20px;
+    border-collapse: collapse;    
+}
+.admin-view table td,.admin-view table th
+{
+    min-width: 100px;
+    height: 40px;
+    background-image: linear-gradient(black, rgb(72, 151, 82));
+    border-bottom: 3px solid rgb(170, 255, 195);
+    border-collapse: collapse;
+}
+.admin-view table td a
+{
+    color: white;
+}
+.admin-view table td button.allow, .admin-view table td button.reject
+{
+    padding: 10px 12px;
+    border: none;
+    color: white;
+    font-family: "Oswald";
+    cursor: pointer;
+    border-radius: 3px;
+}
+.admin-view table td button.allow
+{
+    background-color: green;
+}
+.admin-view table td button.reject
+{
+    background-color: red;
+}
+.admin-view table td button:hover
+{
+    opacity: 80%;
+}
+#new_commers, #present_users
+{
+    text-align: center;
+    animation: 1s show_u;
+}
+@keyframes show_u 
+{
+    from{opacity: 0;}
+    to{opacity: 1;}    
+}
+#present_users
+{
+    display:none;
+}
+#scu, #snr
+{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    font-family: "Oswald";
+    cursor: pointer;
+    margin: 20px;
+}
+#snr:hover, #scu:hover
+{
+    text-shadow: 0 0 10px skyblue,
+    0 0 20px skyblue,
+    0 0 30px skyblue,
+    0 0 40px skyblue;
+}

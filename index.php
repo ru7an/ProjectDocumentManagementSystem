@@ -25,7 +25,7 @@
     <div id="preloader">
         <div class="pl">
             <div class="ploader">
-                <img src="media/icon/preloader.png">
+                <img src="media/icon/logo.png">
                 <div class="shadow"></div>
             </div>
         </div>
@@ -35,13 +35,25 @@
     if(!$_SESSION)
     {
         include 'login.php';
+        ?>
+        <script src="static/js/signup.js"></script>
+        <?php
     }
     else
     {
-        include 'home.php';
+        include 'db.php';
+        $my_email = $_SESSION['email'];
+        $get_my_info = "SELECT * FROM userc WHERE user_email='$my_email' AND verify = 'Yes';";
+        $get_run = pg_query($dbcon, $get_my_info);
+        if(pg_num_rows($get_run))
+        {
+            include 'home.php';
+        }
+        else
+        {
+            include 'waiting.php';
+        }
     }
     ?>
-    
-    <script src="static/js/signup.js"></script>
     <script src="static/js/preloader.js"></script>
 </html>
