@@ -1,0 +1,21 @@
+.menu {
+    background-color: transparent;
+    text-align: center;
+}
+
+.menu__item {
+    display: inline-block;
+    padding: 0.5rem 2rem;
+}
+
+.menu__item__link {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.menu__item__link:hover {
+    text-shadow: 0 0 10px grey, 0 0 20px grey, 0 0 30px grey, 0 0 40px grey;
+}

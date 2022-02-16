@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+.header{
+    background-image: linear-gradient(to left, rgb(39, 218, 54), black);
+    overflow: hidden;
+    padding: 10px;
+}
+
+.header .h-right {
+    float: right;
+    font-size: 20px;
+}
+
+.header .h-left {
+    float: left;
+    font-size: 20px;
+    font-family: 'Fauna One', serif;
+    color: white;
+    width: 50%;
+}
+
+.header .h-right a {
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    font-family: 'Fauna One', serif;
+    padding: 5px;
+}
+
+.header .h-right a:hover {
+    color: black;
+    text-shadow: 0 0 10px grey,
+    0 0 20px grey, 0 0 30px grey, 0 0 40px grey;
+}

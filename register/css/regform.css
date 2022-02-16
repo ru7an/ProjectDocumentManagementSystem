@@ -1,0 +1,60 @@
+.reg1_page, .reg2_page {
+    position: relative;
+    width: 400px;
+    margin: 0 auto;
+    -webkit-animation: fadein 1s;
+    animation: fadein 1s;
+}
+
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+.reg1_page input,
+.reg1_page select,
+.reg2_page input,
+.reg2_page select
+{
+    margin: 10px;
+    font-size: 20px;
+    display: block;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid black;
+    padding: 10px;
+    width: 100%;
+}
+.reg1_page select {
+    border-bottom: none;
+}
+
+.reg1_page input[type='submit'],
+.reg2_page input[type='submit']{
+    background-color: rgb(6, 109, 23);
+    color: aliceblue;
+    padding: 10px 12px;
+    border: none;
+}
+
+.reg1_page input[type='submit']:hover,
+.reg2_page input[type='submit']:hover
+{
+    background-color: rgb(5, 48, 5);
+    cursor: pointer;
+}
+
